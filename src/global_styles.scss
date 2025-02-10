@@ -68,3 +68,62 @@
         border-bottom-right-radius: 10px;
     }
 }
+
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 300;
+    padding: 30px 20% 0 20%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+.modal {
+    padding: 5px;
+    position: relative;
+    z-index: 300;
+    margin: 20px 50% 0 10%;
+    left: 0;
+    top: 0;
+    width: 50%;
+    min-height: 50%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    animation-name: modalOpeningAnimation;
+  }
+
+  @keyframes modalOpeningAnimation {
+    from {
+        right: 0;
+        opacity: 0
+    }
+    to {
+        right: 0;
+        opacity: 1
+    }
+  }
+
+  .header-container {
+    border-bottom: 3px solid rgba(125, 129, 140, 0.4);
+    height: auto;
+    padding-bottom: 5px;
+    display: flex;               
+    flex-direction: row;         
+    justify-content: flex-end;   
+    align-items: center;
+  }
+
+  .filter-icon-container {
+    height: 36px;
+    width: 36px;
+    border-radius: 5px;
+    text-align: center;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.66);
+    box-shadow: 5px 8px 25px 0 rgba(59, 64, 86, 0.15);
+    cursor: pointer;
+  }
