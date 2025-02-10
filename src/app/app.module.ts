@@ -7,9 +7,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared-module';
 import { environment } from '../environments/environment';
+import { TeamListComponent } from './main/team/team-list/team-list.component';
 
 const routes: Routes = [
-    
+    {
+        path: 'team-list',
+        component: TeamListComponent
+    }
 ];
 
 @NgModule({
