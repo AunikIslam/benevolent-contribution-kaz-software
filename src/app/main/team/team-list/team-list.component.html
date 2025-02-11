@@ -1,5 +1,5 @@
-<div class="header-container" >
-    <div class="icon-container">
+<div class="header-container">
+    <div class="icon-container" (click)="openTeamAddComponent()">
         <div class="icon">&#43;</div>
     </div>
 </div>
@@ -7,19 +7,18 @@
     <table class="data-table">
         <thead>
             <tr>
-                <th class="text-center">Member</th>
-                <th class="text-center">Rule Broken</th>
-                <th class="text-center">Amount</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Team Lead</th>
             </tr>
         </thead>
         <tbody>
             @for (item of teams; track item) {
-                <tr>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                    <td class="text-center"></td>
-                </tr>
-                }
+            <tr>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+            </tr>
+            }
         </tbody>
     </table>
 </div>
+<div #teamManageContainer></div>
