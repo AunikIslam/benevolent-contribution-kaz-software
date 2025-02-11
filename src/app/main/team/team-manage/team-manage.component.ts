@@ -12,9 +12,7 @@ import { generateId } from '../../../../utilities';
   styleUrl: './team-manage.component.scss'
 })
 export class TeamManageComponent implements OnInit {
-
   members: Member[] = [];
-  teams: Team[] = [];
   team = new Team();
   @Output() reloadData = new EventEmitter<boolean>();
 
@@ -31,6 +29,6 @@ export class TeamManageComponent implements OnInit {
   saveTeam(): void {
     this.team.id = generateId();
     this.service.saveTeam(this.team);
-    this.reloadData.emit(true);
+    this.reloadData.emit(true)
   }
 }

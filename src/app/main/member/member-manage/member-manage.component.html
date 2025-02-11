@@ -1,0 +1,21 @@
+<div id="memberManageWindow" class="modal-container">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <form #form="ngForm">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" required placeholder="Enter Member Name" [(ngModel)]="member.name">
+            </div>
+
+            <div class="mb-3">
+                <label for="team" class="form-label">Team</label>
+                <select class="form-select" [(ngModel)]="member.team" name="team">
+                    @for (item of teams; track item) {
+                    <option value="item">{{item.name}}</option>
+                    }
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" [disabled]="form.invalid" (click)="saveTeam()">Save</button>
+            
+        </form>
+    </div>
+</div>

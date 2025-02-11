@@ -18,6 +18,12 @@ export class BaseService {
         return localStorage.getItem('members') ? JSON.parse(localStorage.getItem('members')) : [];
     }
 
+    saveMember(pMember: Member): void {
+        const members: Member[] = this.getMembers();
+        members.push(pMember);
+        localStorage.setItem('members', JSON.stringify(members));
+    }
+
     getContribution(): Member[] {
         return localStorage.getItem('contributions') ? JSON.parse(localStorage.getItem('contributions')) : [];
     }

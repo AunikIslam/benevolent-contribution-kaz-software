@@ -8,12 +8,17 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared-module';
 import { environment } from '../environments/environment';
 import { TeamListComponent } from './main/team/team-list/team-list.component';
+import { MemberListComponent } from './main/member/member-list/member-list.component';
 
 const routes: Routes = [
     {
         path: 'team-list',
         component: TeamListComponent
-    }
+    },
+    {
+      path: 'member-list',
+      component: MemberListComponent
+  }
 ];
 
 @NgModule({
