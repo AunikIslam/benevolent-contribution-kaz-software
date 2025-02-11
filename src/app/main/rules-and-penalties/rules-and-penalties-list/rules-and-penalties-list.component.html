@@ -1,5 +1,5 @@
 <div class="header-container">
-    <div class="icon-container" (click)="openTeamAddComponent()">
+    <div class="icon-container" (click)="openRuleAddComponent()">
         <div class="icon">&#43;</div>
     </div>
 </div>
@@ -8,15 +8,15 @@
         <table class="data-table">
             <thead>
                 <tr>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">Team Lead</th>
+                    <th class="text-center">Rule</th>
+                    <th class="text-center">Penalty</th>
                 </tr>
             </thead>
             <tbody>
-                @for (item of teams; track item) {
+                @for (item of rulesAndPenalties; track item) {
                 <tr>
-                    <td class="text-center">{{item.name}}</td>
-                    <td class="text-center">{{item.teamLead?.name}}</td>
+                    <td class="text-center">{{item.rule}}</td>
+                    <td class="text-center">{{item.penalty}}</td>
                 </tr>
                 }
             </tbody>
@@ -24,4 +24,4 @@
     </div>
 </div>
 
-<div #teamManageContainer></div>
+<div #ruleManageContainer></div>

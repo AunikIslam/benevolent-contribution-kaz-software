@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Team } from "../dto/team";
 import { Member } from "../dto/member";
+import { Rule } from "../dto/rule";
 @Injectable({ providedIn: 'root' })
 export class BaseService {
 
@@ -18,7 +19,10 @@ export class BaseService {
         const teams = this.getTeams();
         for(let i = 0; i < teams.length; i++) {
             if(teams[i].id == pMember.team.id) {
-                teams[i].teamLead = pMember;
+                teams[i].teamLead = {
+                    id: pMember.id,
+                    name: pMember.name
+                };
             }
         }
         localStorage.setItem('teams', JSON.stringify(teams));
@@ -39,5 +43,15 @@ export class BaseService {
 
     getContribution(): Member[] {
         return localStorage.getItem('contributions') ? JSON.parse(localStorage.getItem('contributions')) : [];
+    }
+
+    getRulesAndPenalties(): Rule[] {
+        return localStorage.getItem('rules&Penalties') ? JSON.parse(localStorage.getItem('rules&Penalties')) : [];
+    }
+
+    saveRulesAndPenalties(pRule: Rule): void {
+        const rulesAndPenalties: Rule[] = this.getRulesAndPenalties();
+        rulesAndPenalties.push(pRule);
+        localStorage.setItem('rules&Penalties', JSON.stringify(rulesAndPenalties));
     }
 }

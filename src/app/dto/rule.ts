@@ -1,5 +1,5 @@
 export class Rule {
-    id: string;
-    name: string;
-    penaltyAmount: number;
+    id: number;
+    rule: string;
+    penalty: number;
 }
