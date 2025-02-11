@@ -13,18 +13,26 @@ export class TeamListComponent implements OnInit {
   teams: Team[] = [];
 
   @ViewChild('teamManageContainer', { read: ViewContainerRef }) teamManageContainer: ViewContainerRef;
-  teamManageComponentRef: ComponentRef<TeamManageComponent>;
 
-  constructor(private service: BaseService, private viewContainer: ViewContainerRef) {
+  constructor(private service: BaseService) {
 
   }
 
   ngOnInit(): void {
-    this.teams = this.service.getTeams();
+    this.reloadDataTable();
   }
 
   openTeamAddComponent(): void {
-    this.viewContainer.clear();
-    this.viewContainer.createComponent(TeamManageComponent);
+    const componentRef = this.teamManageContainer.createComponent(TeamManageComponent);
+    componentRef.instance.reloadData.subscribe(pData => {
+      if(pData) {
+        this.reloadDataTable();
+      }
+      this.teamManageContainer.clear();
+    });
+  }
+
+  reloadDataTable(): void {
+    this.teams = this.service.getTeams();
   }
 }

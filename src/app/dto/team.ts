@@ -1,7 +1,7 @@
 import { Member } from "./member";
 
 export class Team {
-    id: string;
+    id: number;
     name: string;
     teamLead: Member;
 }

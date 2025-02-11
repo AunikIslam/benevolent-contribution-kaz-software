@@ -3,14 +3,19 @@
         <form #form="ngForm">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" required placeholder="Enter Team Name" [(ngModel)]="team.name">
+                <input type="text" class="form-control" id="name" name="name" required placeholder="Enter Team Name" [(ngModel)]="team.name">
             </div>
 
-            <select class="form-select" [(ngModel)]="team.teamLead">
-                @for (item of members; track item) {
-                <option value="item">{{item.name}}</option>
-                }
-            </select>
+            <div class="mb-3">
+                <label for="teamLead" class="form-label">Team Lead</label>
+                <select class="form-select" [(ngModel)]="team.teamLead" name="teamLead">
+                    @for (item of members; track item) {
+                    <option value="item">{{item.name}}</option>
+                    }
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" [disabled]="form.invalid" (click)="saveTeam()">Save</button>
+            
         </form>
     </div>
 </div>

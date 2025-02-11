@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { SharedModule } from '../../../shared-module';
 import { Member } from '../../../dto/member';
 import { BaseService } from '../../../services/base.service';
 import { Team } from '../../../dto/team';
+import { generateId } from '../../../../utilities';
 
 @Component({
   selector: 'app-team-manage',
@@ -13,7 +14,9 @@ import { Team } from '../../../dto/team';
 export class TeamManageComponent implements OnInit {
 
   members: Member[] = [];
+  teams: Team[] = [];
   team = new Team();
+  @Output() reloadData = new EventEmitter<boolean>();
 
   constructor(private service: BaseService) {
     
@@ -23,5 +26,11 @@ export class TeamManageComponent implements OnInit {
     this.members = this.service.getMembers();
     const modal = document.getElementById('teamManageWindow');
     modal.style.display = 'block';
+  }
+
+  saveTeam(): void {
+    this.team.id = generateId();
+    this.service.saveTeam(this.team);
+    this.reloadData.emit(true);
   }
 }

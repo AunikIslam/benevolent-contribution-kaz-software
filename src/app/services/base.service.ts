@@ -8,6 +8,12 @@ export class BaseService {
         return localStorage.getItem('teams') ? JSON.parse(localStorage.getItem('teams')) : [];
     }
 
+    saveTeam(pTeam: Team): void {
+        const teams: Team[] = this.getTeams();
+        teams.push(pTeam);
+        localStorage.setItem('teams', JSON.stringify(teams));
+    }
+
     getMembers(): Member[] {
         return localStorage.getItem('members') ? JSON.parse(localStorage.getItem('members')) : [];
     }
