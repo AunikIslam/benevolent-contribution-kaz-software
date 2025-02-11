@@ -15,7 +15,7 @@
             @for (item of teams; track item) {
             <tr>
                 <td class="text-center">{{item.name}}</td>
-                <td class="text-center"></td>
+                <td class="text-center">{{item.teamLead?.name}}</td>
             </tr>
             }
         </tbody>

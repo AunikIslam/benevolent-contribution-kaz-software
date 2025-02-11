@@ -9,6 +9,10 @@
     width: 100%;
 }
 
+.parent {
+    padding: 0 20px;
+}
+
 .data-table {
     border-radius: 10px;
     font-size: 13px;
@@ -132,7 +136,7 @@
     background: rgba(255, 255, 255, 0.66);
     box-shadow: 5px 8px 25px 0 rgba(59, 64, 86, 0.15);
     cursor: pointer;
-    margin: 5px;
+    margin: 5px 20px;
 }
 
 .submit-button {

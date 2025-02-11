@@ -3,10 +3,11 @@ import { BaseService } from '../../../services/base.service';
 import { Member } from '../../../dto/member';
 import { Team } from '../../../dto/team';
 import { generateId } from '../../../../utilities';
+import { SharedModule } from '../../../shared-module';
 
 @Component({
   selector: 'app-member-manage',
-  imports: [],
+  imports: [SharedModule],
   templateUrl: './member-manage.component.html',
   styleUrl: './member-manage.component.css'
 })

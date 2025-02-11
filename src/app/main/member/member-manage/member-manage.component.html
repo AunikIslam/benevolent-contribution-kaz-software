@@ -10,10 +10,17 @@
                 <label for="team" class="form-label">Team</label>
                 <select class="form-select" [(ngModel)]="member.team" name="team">
                     @for (item of teams; track item) {
-                    <option value="item">{{item.name}}</option>
+                    <option [ngValue]="item">{{item.name}}</option>
                     }
                 </select>
             </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="isTeamLead" name="isTeamLead" [(ngModel)]="member.isTeamLead">
+                <label class="form-check-label" for="isTeamLead">
+                  Team Lead?
+                </label>
+              </div>
+
             <button type="button" class="btn btn-primary" [disabled]="form.invalid" (click)="saveTeam()">Save</button>
             
         </form>

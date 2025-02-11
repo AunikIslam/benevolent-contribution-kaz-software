@@ -14,6 +14,16 @@ export class BaseService {
         localStorage.setItem('teams', JSON.stringify(teams));
     }
 
+    updateTeamLead(pMember: Member): void {
+        const teams = this.getTeams();
+        for(let i = 0; i < teams.length; i++) {
+            if(teams[i].id == pMember.team.id) {
+                teams[i].teamLead = pMember;
+            }
+        }
+        localStorage.setItem('teams', JSON.stringify(teams));
+    }
+
     getMembers(): Member[] {
         return localStorage.getItem('members') ? JSON.parse(localStorage.getItem('members')) : [];
     }
@@ -22,6 +32,9 @@ export class BaseService {
         const members: Member[] = this.getMembers();
         members.push(pMember);
         localStorage.setItem('members', JSON.stringify(members));
+        if(pMember.isTeamLead) {
+            this.updateTeamLead(pMember);
+        }
     }
 
     getContribution(): Member[] {
