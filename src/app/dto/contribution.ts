@@ -4,6 +4,6 @@ import { Rule } from "./rule";
 export class Contribution {
     id: string;
     contrbutedBy: Member;
-    rule: Rule;
-    amount: number;
+    ruleAndPenalty: Rule;
+    date: string;
 }

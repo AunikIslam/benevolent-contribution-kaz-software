@@ -20,6 +20,13 @@
                 </tr>
                 }
             </tbody>
+            @if (rulesAndPenalties.length == 0) {
+            <tfoot>
+                <tr class="text-center">
+                    <td colspan="2">No rule found!</td>
+                </tr>
+            </tfoot>
+            }
         </table>
     </div>
 </div>

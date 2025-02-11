@@ -1,7 +1,5 @@
 <div class="header-container">
-    <div class="icon-container" (click)="openTeamAddComponent()">
-        <div class="icon">&#43;</div>
-    </div>
+    <button type="button" (click)="openTeamAddComponent()" class="btn btn-primary mb-2 mt-2 me-3">Add Member</button>
 </div>
 <div class="parent">
     <div class="data-table-container">
@@ -20,6 +18,13 @@
                 </tr>
                 }
             </tbody>
+            @if (members.length == 0) {
+            <tfoot>
+                <tr class="text-center">
+                    <td colspan="2">No member found!</td>
+                </tr>
+            </tfoot>
+            }
         </table>
     </div>
 </div>
