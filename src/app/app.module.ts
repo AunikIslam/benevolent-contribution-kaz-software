@@ -9,15 +9,20 @@ import { SharedModule } from './shared-module';
 import { environment } from '../environments/environment';
 import { TeamListComponent } from './main/team/team-list/team-list.component';
 import { MemberListComponent } from './main/member/member-list/member-list.component';
+import { RulesAndPenaltiesListComponent } from './main/rules-and-penalties/rules-and-penalties-list/rules-and-penalties-list.component';
 
 const routes: Routes = [
-    {
-        path: 'team-list',
-        component: TeamListComponent
-    },
-    {
-      path: 'member-list',
-      component: MemberListComponent
+  {
+    path: 'team-list',
+    component: TeamListComponent
+  },
+  {
+    path: 'member-list',
+    component: MemberListComponent
+  },
+  {
+    path: 'rule-and-penalty-list',
+    component: RulesAndPenaltiesListComponent
   }
 ];
 
@@ -33,4 +38,4 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
