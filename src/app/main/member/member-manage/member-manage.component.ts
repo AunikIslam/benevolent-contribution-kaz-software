@@ -33,7 +33,7 @@ export class MemberManageComponent {
 
   saveTeam(): void {
     this.member.id = generateId();
-    this.service.saveMember(this.member);
+    this.service.saveMember(this.member); // save newly added member
     this.reloadData.emit(true)
   }
 }

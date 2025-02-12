@@ -24,6 +24,7 @@ export class MemberListComponent {
   }
 
   openMemberAddComponent(): void {
+    // initiate component creation
     const componentRef = this.memberManageContainer.createComponent(MemberManageComponent);
     componentRef.instance.reloadData.subscribe(pData => {
       if(pData) {
@@ -33,6 +34,7 @@ export class MemberListComponent {
     });
   }
 
+  // prepare member list
   reloadDataTable(): void {
     this.members = this.service.getMembers();
   }
