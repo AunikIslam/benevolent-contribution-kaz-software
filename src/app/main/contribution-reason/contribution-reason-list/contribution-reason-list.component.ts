@@ -13,6 +13,7 @@ import { ContributionReasonManageComponent } from '../contribution-reason-manage
 export class ContributionReasonListComponent {
   contributionReasons: ContributionReason[] = [];
 
+  // dynamic contribution reason add component
   @ViewChild('reasonManageContainer', { read: ViewContainerRef }) reasonManageContainer: ViewContainerRef;
 
   constructor(private service: BaseService) {
@@ -23,6 +24,7 @@ export class ContributionReasonListComponent {
     this.reloadDataTable();
   }
 
+  // initiate opening of reason add component
   openReasonAddComponent(): void {
     const componentRef = this.reasonManageContainer.createComponent(ContributionReasonManageComponent);
     componentRef.instance.reloadData.subscribe(pData => {
@@ -33,6 +35,7 @@ export class ContributionReasonListComponent {
     });
   }
 
+  // load contribution reason list
   reloadDataTable(): void {
     this.contributionReasons = this.service.getContributionReasons();
   }

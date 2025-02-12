@@ -19,6 +19,7 @@ export class ContributionReasonManageComponent {
   }
 
   ngOnInit(): void {
+    // open the manage window
     const modal = document.getElementById('reasonManageWindow');
     modal.style.display = 'block';
   }
@@ -29,7 +30,7 @@ export class ContributionReasonManageComponent {
 
   saveReason(): void {
     this.contributionReason.id = generateId();
-    this.service.saveContributionReason(this.contributionReason);
-    this.reloadData.emit(true)
+    this.service.saveContributionReason(this.contributionReason); // save contribution
+    this.reloadData.emit(true);
   }
 }
