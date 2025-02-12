@@ -10,7 +10,13 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
 
   constructor(private router: Router) {
-    // this.router.navigate(['/team-list']);
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if(event.url == '/') {
+          this.router.navigate(['/team-list'])
+        }
+      }
+    });
   }
 
   ngOnInit() {
