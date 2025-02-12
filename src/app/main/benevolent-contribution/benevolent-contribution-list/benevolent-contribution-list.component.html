@@ -1,1 +1,36 @@
-<p>benevolent-contribution-list works!</p>
+<div class="header-container">
+    <button type="button" (click)="openContributionAddComponent()" class="btn btn-primary mb-2 mt-2 me-3">Add BC Pay</button>
+</div>
+<div class="parent">
+    <div class="data-table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th class="text-center">Name</th>
+                    <!-- <th class="text-center">Team</th> -->
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Contribution Reason</th>
+                    <th class="text-center">Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of contributions; track item) {
+                <tr>
+                    <td class="text-center">{{item.contributedBy?.name}}</td>
+                    <td class="text-center">{{item.date}}</td>
+                    <td class="text-center">{{item.contributionReason?.name}}</td>
+                    <td class="text-center">{{item.contributionReason?.amount}}</td>
+                </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3"></td>
+                    <td class="text-center fw-bold">{{totalContribution()}}</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<div #contributionManageContainer></div>

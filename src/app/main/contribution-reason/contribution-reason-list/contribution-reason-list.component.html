@@ -1,5 +1,5 @@
 <div class="header-container">
-    <button type="button" (click)="openMemberAddComponent()" class="btn btn-primary mb-2 mt-2 me-3">Add Member</button>
+    <button type="button" (click)="openReasonAddComponent()" class="btn btn-primary mb-2 mt-2 me-3">Add Reason</button>
 </div>
 <div class="parent">
     <div class="data-table-container">
@@ -7,21 +7,21 @@
             <thead>
                 <tr>
                     <th class="text-center">Name</th>
-                    <th class="text-center">Team</th>
+                    <th class="text-center">Amount</th>
                 </tr>
             </thead>
             <tbody>
-                @for (item of members; track item) {
+                @for (item of contributionReasons; track item) {
                 <tr>
                     <td class="text-center">{{item.name}}</td>
-                    <td class="text-center">{{item.team?.name}}</td>
+                    <td class="text-center">{{item.amount}}</td>
                 </tr>
                 }
             </tbody>
-            @if (members.length == 0) {
+            @if (contributionReasons.length == 0) {
             <tfoot>
                 <tr class="text-center">
-                    <td colspan="2">No member found!</td>
+                    <td colspan="2">No contribution reason found!</td>
                 </tr>
             </tfoot>
             }
@@ -29,4 +29,4 @@
     </div>
 </div>
 
-<div #memberManageContainer></div>
+<div #reasonManageContainer></div>

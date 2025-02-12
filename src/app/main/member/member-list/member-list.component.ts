@@ -23,7 +23,7 @@ export class MemberListComponent {
     this.reloadDataTable();
   }
 
-  openTeamAddComponent(): void {
+  openMemberAddComponent(): void {
     const componentRef = this.memberManageContainer.createComponent(MemberManageComponent);
     componentRef.instance.reloadData.subscribe(pData => {
       if(pData) {

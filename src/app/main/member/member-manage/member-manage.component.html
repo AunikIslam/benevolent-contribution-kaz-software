@@ -3,7 +3,8 @@
         <form #form="ngForm">
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name" required placeholder="Enter Member Name" [(ngModel)]="member.name">
+                <input type="text" class="form-control" id="name" name="name" required placeholder="Enter Member Name"
+                    [(ngModel)]="member.name">
             </div>
 
             <div class="mb-3">
@@ -15,14 +16,17 @@
                 </select>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="isTeamLead" name="isTeamLead" [(ngModel)]="member.isTeamLead">
+                <input class="form-check-input" type="checkbox" value="" id="isTeamLead" name="isTeamLead"
+                    [(ngModel)]="member.isTeamLead">
                 <label class="form-check-label" for="isTeamLead">
-                  Team Lead?
+                    Team Lead?
                 </label>
-              </div>
+            </div>
 
-            <button type="button" class="btn btn-primary mt-3" [disabled]="form.invalid" (click)="saveTeam()">Save</button>
-            
+            <button type="button" class="btn btn-danger me-1" (click)="closeMemberComponent()">Close</button>
+            <button type="button" class="btn btn-primary" [disabled]="form.invalid"
+                (click)="saveTeam()">Save</button>
+
         </form>
     </div>
 </div>

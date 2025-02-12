@@ -1,7 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Team } from "../dto/team";
 import { Member } from "../dto/member";
-import { Rule } from "../dto/rule";
+import { ContributionReason } from "../dto/contribution-reason";
+import { Contribution } from "../dto/contribution";
 @Injectable({ providedIn: 'root' })
 export class BaseService {
 
@@ -41,17 +42,23 @@ export class BaseService {
         }
     }
 
-    getContribution(): Member[] {
+    getContribution(): Contribution[] {
         return localStorage.getItem('contributions') ? JSON.parse(localStorage.getItem('contributions')) : [];
     }
 
-    getRulesAndPenalties(): Rule[] {
-        return localStorage.getItem('rules&Penalties') ? JSON.parse(localStorage.getItem('rules&Penalties')) : [];
+    saveContributions(pContribution: Contribution): void {
+        const contributions: Contribution[] = this.getContribution();
+        contributions.push(pContribution);
+        localStorage.setItem('contributions', JSON.stringify(contributions));
     }
 
-    saveRulesAndPenalties(pRule: Rule): void {
-        const rulesAndPenalties: Rule[] = this.getRulesAndPenalties();
-        rulesAndPenalties.push(pRule);
-        localStorage.setItem('rules&Penalties', JSON.stringify(rulesAndPenalties));
+    getContributionReasons(): ContributionReason[] {
+        return localStorage.getItem('contributionReasons') ? JSON.parse(localStorage.getItem('contributionReasons')) : [];
+    }
+
+    saveContributionReason(pReason: ContributionReason): void {
+        const reasons: ContributionReason[] = this.getContributionReasons();
+        reasons.push(pReason);
+        localStorage.setItem('contributionReasons', JSON.stringify(reasons));
     }
 }

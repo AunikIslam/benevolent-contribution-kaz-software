@@ -1,9 +1,9 @@
 import { Member } from "./member";
-import { Rule } from "./rule";
+import { ContributionReason } from "./contribution-reason";
 
 export class Contribution {
-    id: string;
-    contrbutedBy: Member;
-    ruleAndPenalty: Rule;
-    date: string;
+    id: number;
+    contributedBy: Member;
+    contributionReason: ContributionReason;
+    date =  new Date().toISOString().split('T')[0];
 }

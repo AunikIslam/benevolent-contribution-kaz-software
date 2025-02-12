@@ -7,10 +7,10 @@
             </div>
 
             <div class="mb-3">
-                <label for="name" class="form-label">Rule</label>
+                <label for="name" class="form-label">Penalty</label>
                 <input type="text" class="form-control" id="penalty" name="penalty" required placeholder="Enter Penalty" [(ngModel)]="ruleAndPenalty.penalty">
             </div>
-
+            <button type="button" class="btn btn-danger me-1" (click)="closeRulesComponent()">Close</button>
             <button type="button" class="btn btn-primary" [disabled]="form.invalid" (click)="saveRuleAndPenalty()">Save</button>
             
         </form>

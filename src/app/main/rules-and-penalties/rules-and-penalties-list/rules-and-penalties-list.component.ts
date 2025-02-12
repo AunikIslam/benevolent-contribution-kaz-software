@@ -2,7 +2,7 @@ import { Component, ViewChild, ViewContainerRef } from '@angular/core';
 import { SharedModule } from '../../../shared-module';
 import { RulesAndPenaltiesManageComponent } from '../rules-and-penalties-manage/rules-and-penalties-manage.component';
 import { BaseService } from '../../../services/base.service';
-import { Rule } from '../../../dto/rule';
+import { Rule } from '../../../dto/contribution-reason';
 
 @Component({
   selector: 'app-rules-and-penalties-list',

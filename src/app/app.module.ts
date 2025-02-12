@@ -8,8 +8,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared-module';
 import { TeamListComponent } from './main/team/team-list/team-list.component';
 import { MemberListComponent } from './main/member/member-list/member-list.component';
-import { RulesAndPenaltiesListComponent } from './main/rules-and-penalties/rules-and-penalties-list/rules-and-penalties-list.component';
 import { BenevolentContributionListComponent } from './main/benevolent-contribution/benevolent-contribution-list/benevolent-contribution-list.component';
+import { ContributionReasonListComponent } from './main/contribution-reason/contribution-reason-list/contribution-reason-list.component';
 
 const routes: Routes = [
   {
@@ -21,8 +21,8 @@ const routes: Routes = [
     component: MemberListComponent
   },
   {
-    path: 'rule-and-penalty-list',
-    component: RulesAndPenaltiesListComponent
+    path: 'contribution-reason-list',
+    component: ContributionReasonListComponent
   },
   {
     path: 'benevolent-contribution-list',

@@ -1,1 +1,35 @@
-<p>benevolent-contribution-manage works!</p>
+<div id="contributionManageWindow" class="modal-container">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <form #form="ngForm">
+
+            <div class="mb-3">
+                <label for="member" class="form-label">Member</label>
+                <select class="form-select" [(ngModel)]="contribution.contributedBy" name="member" required>
+                    @for (item of members; track item) {
+                    <option [ngValue]="item">{{item.name}}</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="reason" class="form-label">Contribution Reason</label>
+                <select class="form-select" [(ngModel)]="contribution.contributionReason" name="reason" required>
+                    @for (item of reasons; track item) {
+                    <option [ngValue]="item">{{item.name}}(Contribution: BDT {{item.amount}})</option>
+                    }
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">Date(mm/dd/yyyy)</label>
+                <input type="date" class="form-control" [(ngModel)]="contribution.date" name="date" required>
+
+            </div>
+
+            <button type="button" class="btn btn-danger me-1" (click)="closeContributionComponent()">Close</button>
+            <button type="button" class="btn btn-primary" [disabled]="form.invalid"
+                (click)="saveContribution()">Save</button>
+
+        </form>
+    </div>
+</div>

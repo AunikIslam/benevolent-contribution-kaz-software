@@ -26,6 +26,10 @@ export class TeamManageComponent implements OnInit {
     modal.style.display = 'block';
   }
 
+  closeTeamComponent(): void {
+    this.reloadData.emit();
+  }
+
   saveTeam(): void {
     this.team.id = generateId();
     this.service.saveTeam(this.team);

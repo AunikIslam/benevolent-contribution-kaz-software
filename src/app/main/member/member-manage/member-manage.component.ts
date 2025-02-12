@@ -27,6 +27,10 @@ export class MemberManageComponent {
     modal.style.display = 'block';
   }
 
+  closeMemberComponent(): void {
+    this.reloadData.emit();
+  }
+
   saveTeam(): void {
     this.member.id = generateId();
     this.service.saveMember(this.member);

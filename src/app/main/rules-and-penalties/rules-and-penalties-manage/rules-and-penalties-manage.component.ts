@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { SharedModule } from '../../../shared-module';
-import { Rule } from '../../../dto/rule';
+import { Rule } from '../../../dto/contribution-reason';
 import { BaseService } from '../../../services/base.service';
 import { generateId } from '../../../../utilities';
 
@@ -22,6 +22,10 @@ export class RulesAndPenaltiesManageComponent {
   ngOnInit(): void {
     const modal = document.getElementById('ruleManageWindow');
     modal.style.display = 'block';
+  }
+
+  closeRulesComponent(): void {
+    this.reloadData.emit();
   }
 
   saveRuleAndPenalty(): void {
