@@ -31,6 +31,7 @@ export class MonthWiseContributionReceiptComponent {
   }
 
 
+  // filter out contributions of the selected month
   getMonthWiseContributions(pMonth: string, pYear: string): void {
     const contributions = this.service.getContribution();
     this.monthWiseContributions = [];
@@ -40,15 +41,20 @@ export class MonthWiseContributionReceiptComponent {
         this.monthWiseContributions.push(pContribution);
       }
     });
+    // map only the amount
     const contributionAmountList: number[] = this.monthWiseContributions.map(pItem => Number(pItem.contributionReason.amount));
+    // call 'calculateTotalContribution' function 
     this.calculateTotalContribution(contributionAmountList);
+    // call 'getTopFiveContributors' function
     this.getTopFiveContributors();
   }
 
+  // calculate contribution of the selected month
   calculateTotalContribution(pContributionList: number[]): void {
     this.totalContribution = pContributionList.reduce((acc, curr) => acc + curr, 0);
   }
 
+  // get the members list and set it into a map
   getMembers(): void {
     const members = this.service.getMembers();
     if(members.length > 0 ) {
@@ -58,10 +64,12 @@ export class MonthWiseContributionReceiptComponent {
     }
   }
 
+  // find out top five contributors
   getTopFiveContributors(): void {
     this.getMembers();
     this.userVsContributonMap.clear();
     const contributors: TopContributor[] = [];
+
     if(this.monthWiseContributions.length > 0) {
       this.monthWiseContributions.forEach(pContribution => {
         const contribution = Number(pContribution.contributionReason.amount);
@@ -74,6 +82,7 @@ export class MonthWiseContributionReceiptComponent {
       });
     }
     
+    // prepare the topContributors list to display top five contributors
     for (const key of this.userVsContributonMap.keys()) {
       const member = this.memberMap.get(key);
       const contribution = this.userVsContributonMap.get(key);
@@ -82,6 +91,7 @@ export class MonthWiseContributionReceiptComponent {
     this.topContributors = contributors.sort((one, two) => two.amount - one.amount).slice(0, 5)
   }
 
+  // print monthly receipt
   downloadReceipt(): void {
     window.print();
   }
