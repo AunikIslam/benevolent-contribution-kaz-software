@@ -25,9 +25,9 @@ export class BenevolentContributionManageComponent {
   }
 
   ngOnInit(): void {
-    this.members = this.service.getMembers();
-    this.reasons = this.service.getContributionReasons();
-    const modal = document.getElementById('contributionManageWindow');
+    this.members = this.service.getMembers(); // load member list
+    this.reasons = this.service.getContributionReasons(); // load contribution reasons
+    const modal = document.getElementById('contributionManageWindow'); // get contribution manage element
     modal.style.display = 'block';
   }
 
@@ -36,9 +36,8 @@ export class BenevolentContributionManageComponent {
   }
 
   saveContribution(): void {
-    this.contribution.id = generateId();
-    console.log(this.contribution);
-    this.service.saveContributions(this.contribution);
-    this.reloadData.emit(true)
+    this.contribution.id = generateId(); // assign unique id to contribution
+    this.service.saveContributions(this.contribution); // call service class to save the contribution
+    this.reloadData.emit(true); // initiate operation to perform on the parent component
   }
 }

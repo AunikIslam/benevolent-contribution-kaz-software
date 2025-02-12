@@ -1,7 +1,8 @@
 <div id="contributionManageWindow" class="modal-container">
     <div class="modal-content" (click)="$event.stopPropagation()">
+        <!-- contribution form -->
         <form #form="ngForm">
-
+            <!-- member list -->
             <div class="mb-3">
                 <label for="member" class="form-label">Member</label>
                 <select class="form-select" [(ngModel)]="contribution.contributedBy" name="member" required>
@@ -10,7 +11,7 @@
                     }
                 </select>
             </div>
-
+            <!-- contribution reason list -->
             <div class="mb-3">
                 <label for="reason" class="form-label">Contribution Reason</label>
                 <select class="form-select" [(ngModel)]="contribution.contributionReason" name="reason" required>
@@ -19,13 +20,12 @@
                     }
                 </select>
             </div>
-
+            <!-- date field -->
             <div class="mb-3">
                 <label for="date" class="form-label">Date(mm/dd/yyyy)</label>
                 <input type="date" class="form-control" [(ngModel)]="contribution.date" name="date" required>
-
             </div>
-
+            <!-- action buttons -->
             <button type="button" class="btn btn-danger me-1" (click)="closeContributionComponent()">Close</button>
             <button type="button" class="btn btn-primary" [disabled]="form.invalid"
                 (click)="saveContribution()">Save</button>
