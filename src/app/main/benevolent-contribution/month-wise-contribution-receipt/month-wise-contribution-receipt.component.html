@@ -20,7 +20,10 @@
           <div class="col">
             <button type="button" class="btn btn-primary mt-4" 
             [disabled]="filter.month == null || filter.year == null" (click)="getMonthWiseContributions(filter.month, filter.year)">Get Contribution Info</button>
-            <button type="button" class="btn btn-primary mt-4"  (click)="downloadReceipt()">Download</button>  
+            @if (topContributors.length > 0) {
+                <button type="button" class="btn btn-primary mt-4 ms-2"  (click)="downloadReceipt()">Download</button> 
+            }
+             
         </div>
         </div>
       </div>
