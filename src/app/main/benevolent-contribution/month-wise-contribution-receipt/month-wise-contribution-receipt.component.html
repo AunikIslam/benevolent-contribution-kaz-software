@@ -1,5 +1,5 @@
 <div class="parent">
-    <div class="container mb-2">
+    <div class="container mb-2 no-print">
         <div class="row">
           <div class="col">
             <label for="month" >Month</label>
@@ -20,13 +20,14 @@
           <div class="col">
             <button type="button" class="btn btn-primary mt-4" 
             [disabled]="filter.month == null || filter.year == null" (click)="getMonthWiseContributions(filter.month, filter.year)">Get Contribution Info</button>
-          </div>
+            <button type="button" class="btn btn-primary mt-4"  (click)="downloadReceipt()">Download</button>  
+        </div>
         </div>
       </div>
 
     
 
-    
+    <div class="mt-1 mb-1">Total contribution in the selected month is: <span class="fw-bold">&#2547;{{totalContribution}}</span></div>
 
     <div class="data-table-container">
         <table class="data-table">
@@ -55,5 +56,3 @@
         </table>
     </div>
 </div>
-
-<div #contributionManageContainer></div>

@@ -81,4 +81,8 @@ export class MonthWiseContributionReceiptComponent {
     }
     this.topContributors = contributors.sort((one, two) => two.amount - one.amount).slice(0, 5)
   }
+
+  downloadReceipt(): void {
+    window.print();
+  }
 }
