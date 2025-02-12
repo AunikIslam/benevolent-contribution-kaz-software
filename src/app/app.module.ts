@@ -10,6 +10,7 @@ import { TeamListComponent } from './main/team/team-list/team-list.component';
 import { MemberListComponent } from './main/member/member-list/member-list.component';
 import { BenevolentContributionListComponent } from './main/benevolent-contribution/benevolent-contribution-list/benevolent-contribution-list.component';
 import { ContributionReasonListComponent } from './main/contribution-reason/contribution-reason-list/contribution-reason-list.component';
+import { MonthWiseContributionReceiptComponent } from './main/benevolent-contribution/month-wise-contribution-receipt/month-wise-contribution-receipt.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'benevolent-contribution-list',
     component: BenevolentContributionListComponent
+  },
+  {
+    path: 'month-wise-contribution-receipt',
+    component: MonthWiseContributionReceiptComponent
   }
 ];
 

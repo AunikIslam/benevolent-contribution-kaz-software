@@ -15,8 +15,14 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="[ '/contribution-reason-list' ]" routerLinkActive="link-primary">Rules & Penalties</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" [routerLink]="[ '/benevolent-contribution-list' ]" routerLinkActive="link-primary">Benevolent Contributions</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Benevolent Contributions
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="[ '/benevolent-contribution-list' ]" routerLinkActive="link-primary">Benevolent Contribution List</a></li>
+              <li><a class="dropdown-item" [routerLink]="[ '/month-wise-contribution-receipt' ]" routerLinkActive="link-primary">Month Wise Benevolent Contribution</a></li>
+            </ul>
           </li>
         </ul>
       </div>

@@ -16,7 +16,7 @@
             <tbody>
                 @for (item of contributions; track item) {
                 <tr>
-                    <td class="text-center">{{item.contributedBy?.name}}</td>
+                    <td class="text-center">{{item.contributedBy?.name}}({{item.contributedBy?.id}})</td>
                     <td class="text-center">{{item.date}}</td>
                     <td class="text-center">{{item.contributionReason?.name}}</td>
                     <td class="text-center">{{item.contributionReason?.amount}}</td>

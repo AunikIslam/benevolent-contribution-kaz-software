@@ -1,0 +1,59 @@
+<div class="parent">
+    <div class="container mb-2">
+        <div class="row">
+          <div class="col">
+            <label for="month" >Month</label>
+            <select class="form-select" [(ngModel)]="filter.month">
+                @for (item of months; track item) {
+                <option [ngValue]="item.value">{{item.name}}</option>
+                }
+            </select>
+          </div>
+          <div class="col">
+            <label for="year">Year</label>
+            <select class="form-select" [(ngModel)]="filter.year">
+                @for (item of years; track item) {
+                <option [value]="item">{{item}}</option>
+                }
+            </select>
+          </div>
+          <div class="col">
+            <button type="button" class="btn btn-primary mt-4" 
+            [disabled]="filter.month == null || filter.year == null" (click)="getMonthWiseContributions(filter.month, filter.year)">Get Contribution Info</button>
+          </div>
+        </div>
+      </div>
+
+    
+
+    
+
+    <div class="data-table-container">
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Contribution</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (item of topContributors; track item) {
+                <tr>
+                    <td class="text-center">{{item.member?.name}}</td>
+                    <td class="text-center">{{item.amount}}</td>
+                </tr>
+                }
+            </tbody>
+            @if(topContributors.length == 0) {
+                <tfoot>
+                    <tr>
+                        <td colspan="2" class="text-center fw-bold">No contributors found!</td>
+                    </tr>
+                </tfoot>
+            }
+        
+        </table>
+    </div>
+</div>
+
+<div #contributionManageContainer></div>
